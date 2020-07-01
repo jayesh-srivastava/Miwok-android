@@ -46,28 +46,28 @@ public class MainActivity extends AppCompatActivity {
         family.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(MainActivity.this, FamilyActivity.class);
-                startActivity(intent);
+                Intent familyintent=new Intent(MainActivity.this, FamilyActivity.class);
+                startActivity(familyintent);
             }
         });
 
 
         TextView colors=(TextView) findViewById(R.id.colors);
-        family.setOnClickListener(new OnClickListener() {
+        colors.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(MainActivity.this, ColorsActivity.class);
-                startActivity(intent);
+                Intent colorintent=new Intent(MainActivity.this, ColorsActivity.class);
+                startActivity(colorintent);
             }
         });
 
 
         TextView phrases=(TextView) findViewById(R.id.phrases);
-        family.setOnClickListener(new OnClickListener() {
+        phrases.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(MainActivity.this, PhrasesActivity.class);
-                startActivity(intent);
+                Intent phraseintent=new Intent(MainActivity.this, PhrasesActivity.class);
+                startActivity(phraseintent);
             }
         });
 

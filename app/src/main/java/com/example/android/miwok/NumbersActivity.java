@@ -16,8 +16,7 @@
 package com.example.android.miwok;
 
 import android.os.Bundle;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -31,25 +30,20 @@ public class NumbersActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_numbers);
 
-        List<String> words=new ArrayList<>();
-        words.add("One");
-        words.add("Two");
-        words.add("Three");
-        words.add("Four");
-        words.add("Five");
-        words.add("Six");
-        words.add("Seven");
-        words.add("Eight");
-        words.add("Nine");
-        words.add("Ten");
+        List<Word> words=new ArrayList<Word>();
+        words.add(new Word("lutti","one"));
+        words.add(new Word("otiiko","two"));
+        words.add(new Word("tolookosu","three"));
+        words.add(new Word("oyissa","four"));
+        words.add(new Word("massoka","five"));
+        words.add(new Word("temmokka","six"));
+        words.add(new Word("kenekaku","seven"));
+        words.add(new Word("kawinta","eight"));
+        words.add(new Word("wo'e","nine"));
+        words.add(new Word("na'aacha","ten"));
 
-        LinearLayout rootview=(LinearLayout) findViewById(R.id.rootviewnumbers);
-        int size=words.size();
-        for(int x=0;x<size;x++)
-        {
-            TextView textview=new TextView(this);
-            textview.setText(words.get(x));
-            rootview.addView(textview);
-        }
+        WordAdapter adapter=new WordAdapter(this, words);
+        ListView listview=(ListView) findViewById(R.id.rootviewnumbers);
+        listview.setAdapter(adapter);
     }
 }
