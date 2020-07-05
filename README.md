@@ -1,6 +1,6 @@
 # Miwok App
 
-This app displays lists of vocabulary words for the user to learn the Miwok language.\
+This app displays lists of vocabulary words for the user to learn the Miwok language. Divided according to categories this app also contains images and the pronunciations of the Miwok words.\
 Built as a practice app for Udacity's Android:Basics-Multiscreen Apps.\
 [https://classroom.udacity.com/courses/ud839] - Link to the course
 
