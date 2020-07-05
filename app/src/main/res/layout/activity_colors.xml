@@ -19,6 +19,7 @@
     android:layout_height="match_parent"
     android:id="@+id/rootviewcolors"
     android:orientation="vertical"
-    tools:context="com.example.android.miwok.ColorsActivity">
+    tools:context="com.example.android.miwok.ColorsActivity"
+    android:drawSelectorOnTop="true">
 
 </ListView>

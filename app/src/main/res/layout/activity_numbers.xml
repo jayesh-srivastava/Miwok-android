@@ -19,6 +19,7 @@
     android:layout_height="match_parent"
     android:id="@+id/rootviewnumbers"
     android:orientation="vertical"
-    tools:context="com.example.android.miwok.NumbersActivity">
+    tools:context="com.example.android.miwok.NumbersActivity"
+    android:drawSelectorOnTop="true">
 
 </ListView>

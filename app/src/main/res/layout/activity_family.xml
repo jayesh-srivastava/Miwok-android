@@ -19,6 +19,7 @@
     android:layout_height="match_parent"
     android:id="@+id/rootviewfamily"
     android:orientation="vertical"
-    tools:context="com.example.android.miwok.FamilyActivity">
+    tools:context="com.example.android.miwok.FamilyActivity"
+    android:drawSelectorOnTop="true">
 
 </ListView>

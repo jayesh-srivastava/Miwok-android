@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
     android:minHeight="@dimen/list_item_height"
     android:background="@color/tan_background">
 
@@ -16,8 +15,9 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="88dp"
                 android:paddingLeft="16dp"
+                android:layout_toRightOf="@id/image"
                 android:orientation="vertical"
                 android:id="@+id/text">
                 <TextView
@@ -37,6 +37,17 @@
                     android:gravity="top"
                     android:textAppearance="?android:textAppearanceMedium"
                     android:id="@+id/number"
-                    tools:text="one"/>
+                    tools:text="one" />
+
             </LinearLayout>
-</LinearLayout>
+    <ImageView
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@drawable/baseline_play_arrow_white_24"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="20dp"
+        android:layout_marginEnd="20dp"/>
+
+</RelativeLayout>

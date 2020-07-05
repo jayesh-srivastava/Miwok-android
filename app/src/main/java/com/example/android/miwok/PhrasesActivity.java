@@ -15,12 +15,13 @@
  */
 package com.example.android.miwok;
 
+import android.content.Context;
+import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -29,6 +30,9 @@ import java.util.List;
 
 public class PhrasesActivity extends AppCompatActivity {
     MediaPlayer media;
+    AudioManager audio;
+    AudioManager.OnAudioFocusChangeListener listener;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,23 +59,51 @@ public class PhrasesActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Word word=list.get(position);
                 releaseM();
-                media=MediaPlayer.create(PhrasesActivity.this, word.getMusic());
-                media.start();
-                releaseM();
-                media.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                audio=(AudioManager)getSystemService(Context.AUDIO_SERVICE);
+                listener=new AudioManager.OnAudioFocusChangeListener() {
                     @Override
-                    public void onCompletion(MediaPlayer mp) {
-                        Toast toast=Toast.makeText(PhrasesActivity.this, "Done!",Toast.LENGTH_SHORT);
-                        toast.show();
+                    public void onAudioFocusChange(int focusChange) {
+                        if(focusChange==AudioManager.AUDIOFOCUS_GAIN)
+                        {
+                            media.start();
+                        }
+                        else if(focusChange==AudioManager.AUDIOFOCUS_LOSS)
+                        {
+                            releaseM();
+                        }
+                        else if(focusChange==AudioManager.AUDIOFOCUS_LOSS_TRANSIENT || focusChange==AudioManager.AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK)
+                        {
+                            media.pause();
+                            media.seekTo(0);
+                        }
                     }
-                });
+                };
+                int result=audio.requestAudioFocus(listener , AudioManager.STREAM_MUSIC, AudioManager.AUDIOFOCUS_GAIN_TRANSIENT);
+                if(result==AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
+                    media = MediaPlayer.create(PhrasesActivity.this, word.getMusic());
+                    media.start();
+                    media.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                        @Override
+                        public void onCompletion(MediaPlayer mp) {
+                            releaseM();
+                        }
+                    });
+                }
             }
         });
     }
     private void releaseM()
     {
-        if(media!=null)
+        if(media!=null) {
             media.release();
-        media=null;
+            media = null;
+            audio.abandonAudioFocus(listener);
+        }
+    }
+    @Override
+    protected void onPause()
+    {
+        super.onPause();
+        releaseM();
     }
 }

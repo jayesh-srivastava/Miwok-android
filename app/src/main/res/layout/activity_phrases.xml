@@ -19,6 +19,7 @@
     android:layout_height="match_parent"
     android:id="@+id/rootviewphrases"
     android:orientation="vertical"
-    tools:context="com.example.android.miwok.PhrasesActivity">
+    tools:context="com.example.android.miwok.PhrasesActivity"
+    android:drawSelectorOnTop="true">
 
 </ListView>
