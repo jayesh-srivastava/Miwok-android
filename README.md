@@ -15,7 +15,7 @@ To run the application in a RealWorld Android Device - Enable Developers Options
 
 ## How to directly install the app in your android device?
 * [app-debug.apk](https://github.com/jayesh-srivastava/Miwok-android/blob/master/apk%20file/app-debug.apk)
-Open github from your android device, search for my github profile 'jayesh-srivastava' in the all github and open the Scorer-android repository. Scroll down to the readme file and click on the above link and click on 'view raw'. The app will be downloaded in your android device.
+Open github from your android device, search for my github profile 'jayesh-srivastava' and open the Miwok-android repository. Scroll down to the readme file and click on the above link and click on 'view raw'. The app will be downloaded in your android device.
 
 
 ### Developed by  [@jayesh-srivastava](https://github.com/jayesh-srivastava)
